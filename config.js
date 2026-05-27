@@ -1,31 +1,22 @@
 /**
- * Configuration Constants
- * Modify these values to customize app behavior
+ * Configuration Module
+ * Centralized settings for easy customization
  */
 
 const CONFIG = {
-  // Timer between sends (milliseconds)
+  // Timer duration in milliseconds
   TIMER_DURATION: 4000,
 
-  // Timer update interval (milliseconds)
+  // Timer animation update interval
   TIMER_UPDATE_INTERVAL: 100,
 
-  // Max progress dots to show
+  // Maximum number of progress dots to show
   MAX_DOTS: 8,
 
-  // File input accepted formats
-  ACCEPTED_FILES: '.vcf,.txt',
-
-  // Default placeholder text
-  PLACEHOLDERS: {
-    name: '—',
-    number: '—',
-  },
-
-  // Messages
+  // UI text messages
   MESSAGES: {
-    noContacts: 'No contacts found',
     oneContact: '1 contact loaded',
     multipleContacts: 'contacts loaded',
+    noContacts: 'No contacts found',
   },
 };
