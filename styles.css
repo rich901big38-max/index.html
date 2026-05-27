@@ -1,0 +1,303 @@
+/* ======================
+   RESET & BASE
+   ====================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ======================
+   THEME VARIABLES
+   ====================== */
+:root {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --text: #1a1a1a;
+  --muted: #888;
+  --accent: #1a1a1a;
+  --accent-text: #fff;
+  --radius: 16px;
+  --green: #22c55e;
+}
+
+/* ======================
+   BODY & LAYOUT
+   ====================== */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1.5rem 1rem 3rem;
+}
+
+#app {
+  width: 100%;
+  max-width: 390px;
+}
+
+/* ======================
+   TYPOGRAPHY
+   ====================== */
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* ======================
+   CARD
+   ====================== */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  margin-bottom: 12px;
+}
+
+/* ======================
+   TEXTAREA
+   ====================== */
+textarea {
+  width: 100%;
+  min-height: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: 1.6;
+}
+
+.char-count {
+  text-align: right;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ======================
+   FILE IMPORT
+   ====================== */
+.import-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.import-label input {
+  display: none;
+}
+
+.import-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-count {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ======================
+   BUTTONS
+   ====================== */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.1s;
+  margin-top: 4px;
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-ghost {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.15s;
+}
+
+.btn-ghost:active {
+  color: var(--text);
+}
+
+/* ======================
+   CONTACT INFO
+   ====================== */
+.contact-name {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.contact-number {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ======================
+   PROGRESS
+   ====================== */
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.progress-text {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.progress-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.2s;
+}
+
+.dot.done {
+  background: var(--green);
+}
+
+.dot.current {
+  background: var(--text);
+}
+
+/* ======================
+   TIMER
+   ====================== */
+.timer-track {
+  height: 2px;
+  background: var(--bg);
+  border-radius: 2px;
+  margin-top: 14px;
+  overflow: hidden;
+  display: none;
+}
+
+.timer-fill {
+  height: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ======================
+   STEP VISIBILITY
+   ====================== */
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
+/* ======================
+   DONE SCREEN
+   ====================== */
+.done-icon {
+  font-size: 48px;
+  text-align: center;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.done-card {
+  text-align: center;
+  padding: 2.5rem 1rem;
+}
+
+.done-card p {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.done-card strong {
+  color: var(--text);
+}
+
+/* ======================
+   DARK MODE
+   ====================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --surface: #1c1c1c;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #f0f0f0;
+    --muted: #666;
+    --accent: #f0f0f0;
+    --accent-text: #111;
+  }
+}
