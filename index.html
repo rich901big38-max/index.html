@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bulk SMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- STEP 1: SETUP -->
+    <div id="step-setup" class="step active">
+      <h1>Bulk SMS</h1>
+
+      <div class="card">
+        <div class="label">Message</div>
+        <textarea id="msg" placeholder="Type your message here…" oninput="countChars()"></textarea>
+        <div class="char-count"><span id="chars">0</span> characters</div>
+      </div>
+
+      <div class="card">
+        <label class="import-label">
+          <div class="import-icon">📁</div>
+          <div>
+            <div>Import contacts</div>
+            <div style="font-size:12px; font-weight:400; color:var(--muted); margin-top:2px">.vcf or .txt (name,number)</div>
+          </div>
+          <input type="file" accept=".vcf,.txt" onchange="importFile(event)">
+        </label>
+        <div class="contact-count" id="contact-count"></div>
+      </div>
+
+      <button class="btn-primary disabled" id="start-btn" onclick="startSending()">Start sending</button>
+    </div>
+
+    <!-- STEP 2: SENDING -->
+    <div id="step-send" class="step">
+      <h1>Sending</h1>
+
+      <div class="card">
+        <div class="label">Next up</div>
+        <div class="contact-name" id="contact-name">—</div>
+        <div class="contact-number" id="contact-number">—</div>
+        <div class="progress-row">
+          <div class="progress-text" id="progress-text"></div>
+          <div class="progress-dots" id="progress-dots"></div>
+        </div>
+        <div class="timer-track" id="timer-track">
+          <div class="timer-fill" id="timer-fill"></div>
+        </div>
+      </div>
+
+      <a class="btn-primary" id="send-link" href="#" onclick="onSendTap()">
+        Send to <span id="btn-name">—</span>
+      </a>
+      <button class="btn-ghost" onclick="skipContact()">Skip</button>
+    </div>
+
+    <!-- STEP 3: DONE -->
+    <div id="step-done" class="step">
+      <div class="done-card">
+        <span class="done-icon">✅</span>
+        <p>Sent to <strong id="sent-count">0</strong> contacts</p>
+        <button class="btn-primary" onclick="resetApp()">Start over</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="parser.js"></script>
+  <script src="ui.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
